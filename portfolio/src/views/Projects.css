@@ -1,0 +1,48 @@
+/* smallHeader is the thing at the top that brings you back to the home page */
+.smallHeader {
+  position: fixed;
+  top: 0;
+  background-color:honeydew;
+}
+
+.smallHeaderColumn {
+  float:left;
+}
+
+/* projectHeader is the thing at the top below smallHeader that shows the project title and .projectDescription
+and includes when you click to choose what is shown*/
+.projectHeader {
+  margin-top: 50px;
+  background-color: cornsilk;
+}
+
+
+.projectDescription {
+
+}
+
+.projectTitle {
+
+}
+
+/* this is the div that contains User Research and Branding */
+.projectSelections {
+  background-color:saddlebrown;
+  height: 100px;
+}
+
+/* This class gets added to the .projectSelections div when you either have no options to choose from between UXR and Branding
+or if a user has clicked on one to show the contents of the project! */
+.clicked {
+  height: 30px;
+}
+
+/* section stuff is the CSS that goes for each independent section for each project. If you want customization, we can talk about
+how to add that in! */
+.sectionTitle {
+
+}
+
+.sectionDescription {
+
+}
