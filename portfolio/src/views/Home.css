@@ -1,3 +1,6 @@
+$putty-color: #fff0e1;
+$yellow-color: #ffce00;
+
 .home {
   text-align: center;
   height: 100%;
@@ -6,9 +9,10 @@
 /* Header -- REMEMBER you must change .main whenever you change the header height */
 .mainheader {
   overflow: hidden;
-  background-color: #f1f1f1;
+  background-color: white;
   position: fixed;
   width: 100%;
+  height: 40%;
   top: 0;
   z-index: 1;
 }
@@ -17,12 +21,15 @@
   text-align: center;
   padding: 10px;
   font-size: 32px;
+  top: 20%;
 }
 
 .pageselections {
   position: relative;
   width: 100%;
-  background-color: yellow;
+  height: 25%;
+  top: 39%;
+  background-color: #ffce00;
 }.pageselections:after {
     content: "";
     display: block;
@@ -50,27 +57,32 @@
 
 /* Main Project Content */
 .main {
-  margin-top: 148.88px; /* Defined manually; must change when header size changes*/
+  margin-top: 21%; /* Defined manually; must change when header size changes*/
   position: relative;
 }
 
 .sidenav {
   width: 30px;
   height: 100%;
-  background-color: red;
+  background-color: white;
   position: absolute;
+  outline: 1px solid black;
+  outline-offset: 1px;
+  writing-mode: vertical-rl;
+  text-orientation: sideways;
+  left:0;
 }
 
 .projectcontent {
   text-align: left;
-  padding: 5px;
   margin-left: 30px;
   overflow: scroll;
-  background-color: burlywood;
+  background-color: white;
 }
 
 .projectlist {
-  background-color: blue;
+  background-color: white;
+  padding-top: 50px;
 }
 
 a {
@@ -79,13 +91,34 @@ a {
 }
 
 .projectcontainer {
-  margin-bottom: 50px;
-  border: black 1px;
-  background-color: sandybrown;
-}.projectcontainer:hover {
-  background-color: lightgoldenrodyellow;
+  background-color: #fff0e1;
+  width: 60%;
+  height: 275px;
+  margin: 0px 5% 50px 15%; /*order is top right bottom left*/
+  text-align:right;
+  padding-right: 5%;
+  padding-left: 15%;
 }
+
+.projectcontainer:hover {
+  background-color: #fff0e1;
+}
+
+  .projectcontainer::after { /*https://codepen.io/bratzie/pen/OQYYeX*/
+    position: absolute;
+    content: '';
+    width: 76.5%;
+    height: 275px;
+    transform: translate(-96%, -42%);
+    border: 3px solid #ffce00;
+    transition: transform 150ms ease-in-out;
+  }
+
+  .projectcontainer:hover::after{
+    transform:translate(-93%, -49%); /*left/right, top/bottom*/
+  }
 
 .project {
   padding: 2vh;
+  top: 10%;
 }

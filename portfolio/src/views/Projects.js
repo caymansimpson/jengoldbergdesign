@@ -104,12 +104,13 @@ class Projects extends React.Component {
         <p>ID of project: {this.props.id}</p>
         <p>State of App: {this.props.selected}</p>
         <p>Clicked: {this.state.clicked !== null? "clicked" : "not clicked"}</p> */}
-
-        {this.state.clicked !== null && // only display something if something was clicked, and choose which to display
-          (this.state.clicked === 'uxr'? this.props.project.uxr : this.props.project.design).map(function(u, i) {
-            return <Section sectionTitle={u.name} sectionDescription={u.description} key={i}/>
-          }, this)
-        }
+        <div className='projectdescriptionholder'>
+          {this.state.clicked !== null && // only display something if something was clicked, and choose which to display
+            (this.state.clicked === 'uxr'? this.props.project.uxr : this.props.project.design).map(function(u, i) {
+              return <Section sectionTitle={u.name} sectionDescription={u.description} key={i}/>
+            }, this)
+          }
+        </div>
       </div>
     );
   }
