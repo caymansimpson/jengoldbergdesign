@@ -16,7 +16,7 @@ code {
 
 @font-face {
   font-family: 'Catamaran';
-  src: local('Catamaran'), url(./images/Catamaran/Catamaran-Medium.ttf) format('tff');
+  src: local('Catamaran'), url(./images/Catamaran/Catamaran-Medium.ttf) format('truetype');
 }
 
 body {
