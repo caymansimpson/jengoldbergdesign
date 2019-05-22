@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+
 const exampleBothProject = {
   'title': 'Both Project',
   'description': 'Providing middle skills training and connections to employers',

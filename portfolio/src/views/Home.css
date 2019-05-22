@@ -18,10 +18,10 @@ $yellow-color: #ffce00;
 }
 
 .mainheader h1 {
+  position: relative;
   text-align: center;
-  padding: 10px;
   font-size: 32px;
-  top: 20%;
+  top: 30%;
 }
 
 .pageselections {
@@ -51,7 +51,7 @@ $yellow-color: #ffce00;
 }
 
 .mainheader span:hover {
-  color: #A9A9A9;
+  color: #260063;
   cursor: pointer;
 }
 
@@ -109,7 +109,7 @@ a {
     content: '';
     width: 76.5%;
     height: 275px;
-    transform: translate(-96%, -42%);
+    transform: translate(-96%, -53%);
     border: 3px solid #ffce00;
     transition: transform 150ms ease-in-out;
   }
