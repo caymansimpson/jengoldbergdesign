@@ -49,24 +49,66 @@ class ProjectHeader extends React.Component {
           <p>{this.props.project.title}</p>
         </div>
 
-        <div className={"projectSelections " + (this.props.clicked !== null? 'clicked': '')}>
-          {this.props.project.uxr !== undefined && <div className="projectOption" val="uxr" onClick={(e) => this.props.handleClick(e, "uxr")}>User Research</div>}
-          {this.props.project.design !== undefined && <div className="projectOption" val="design" onClick={(e) => this.props.handleClick(e, "design")}>Design</div>}
+        {this.props.project.uxr !== undefined && this.props.project.design !== undefined && // only show choice if there is any
+          <div className={"projectSelections " + (this.props.clicked !== null? 'clicked': '')}>
+            {this.props.project.uxr !== undefined && <div className="projectOption" val="uxr" onClick={(e) => this.props.handleClick(e, "uxr")}>User Research</div>}
+            {this.props.project.design !== undefined && <div className="projectOption" val="design" onClick={(e) => this.props.handleClick(e, "design")}>Design</div>}
+          </div>
+        }
+      </div>
+    );
+  }
+}
+
+class TextSection extends React.Component {
+  render() {
+    return (
+      <div>
+        <div className='sectionTitle'>
+          <h2>{this.props.project.name}</h2>
+        </div>
+        <div className='sectionDescription'>
+          <p>{this.props.project.description}</p>
         </div>
       </div>
     );
   }
 }
 
-class Section extends React.Component {
+class ColumnSection extends React.Component {
   render() {
     return (
       <div>
-        <div className='sectionTitle'>
-          <h2>{this.props.sectionTitle}</h2>
+        <div className='columnSectionTitle'>
+          <h2>{this.props.project.name}</h2>
         </div>
-        <div className='sectionDescription'>
-          <p>{this.props.sectionDescription}</p>
+        <div className='columnHolder'>
+          {
+            this.props.project.columns.map(function(u, i) {
+              return (
+                <div>
+                  <div className='columnTitle'>
+                    {u.name}
+                  </div>
+                  <div className='columnText'>
+                    {u.description}
+                  </div>
+              </div>
+              )
+            })
+          }
+        </div>
+      </div>
+    );
+  }
+}
+
+class QuoteSection extends React.Component {
+  render() {
+    return (
+      <div>
+        <div className='quoteSection'>
+          <h2 className='quoteText'>{this.props.project.description}</h2>
         </div>
       </div>
     );
@@ -80,8 +122,8 @@ class Projects extends React.Component {
   constructor(props) {
     super(props);
 
-    // Define what sttae we should be beginning the Project in
-    let clicked;
+    // Define what state we should be beginning the Project in
+    let clicked; // TODO: clean up state because no longer need state for one-off projects
     if(props.project.uxr !== undefined && props.project.design !== undefined) clicked = null; // if we have both
     else clicked = (props.project.uxr !== undefined)? 'uxr': 'design' // if we only have one
 
@@ -107,7 +149,9 @@ class Projects extends React.Component {
         <div className='projectdescriptionholder'>
           {this.state.clicked !== null && // only display something if something was clicked, and choose which to display
             (this.state.clicked === 'uxr'? this.props.project.uxr : this.props.project.design).map(function(u, i) {
-              return <Section sectionTitle={u.name} sectionDescription={u.description} key={i}/>
+              if(u.type === "text") return <TextSection project={u} key={i}/>
+              else if (u.type === "column") return <ColumnSection project={u} key={i}/>
+              else if (u.type === "quote") return <QuoteSection project={u} key={i}/>
             }, this)
           }
         </div>

@@ -1,6 +1,3 @@
-$putty-color: #fff0e1;
-$yellow-color: #ffce00;
-
 .home {
   text-align: center;
   height: 100%;
@@ -71,6 +68,10 @@ $yellow-color: #ffce00;
   writing-mode: vertical-rl;
   text-orientation: sideways;
   left:0;
+}
+
+.sidenavTester {
+
 }
 
 .projectcontent {

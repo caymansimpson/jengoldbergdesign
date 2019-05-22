@@ -69,7 +69,14 @@ class Home extends React.Component {
     if(selected !== "Me") {
       content = (
         <div>
-          <div className="sidenav">" "</div>
+          <div className="sidenav"> {//TODO: testing
+          }
+            <div className="sidenavTester">Project 1</div>
+            <div className="sidenavTester">Project 2</div>
+            <div className="sidenavTester">Project 3</div>
+            <div className="sidenavTester">Project 4</div>
+            <div className="sidenavTester">Project 5</div>
+          </div>
           <div className="projectcontent">
             <ProjectList projects={this.props.projects} selection={selected}/>
           </div>
