@@ -35,8 +35,10 @@
 
 /* This class is added to the current selection dynamically*/
 .emphasis {
-  font-size: 24px;
+  font-size: 16px;
   font-weight: bold;
+  border-top: 1px solid black;
+  padding: 0 6px;
 }
 
 .mainheader .column {
@@ -48,30 +50,38 @@
 }
 
 .mainheader span:hover {
-  color: #260063;
+  color: black;
   cursor: pointer;
 }
 
 /* Main Project Content */
 .main {
-  margin-top: 21%; /* Defined manually; must change when header size changes*/
+  margin-top: 40vh; /* Defined manually; must change when header size changes*/
   position: relative;
 }
 
 .sidenav {
-  width: 30px;
-  height: 100%;
+  width: 62.6vh;
+  height: 1vw;
   background-color: white;
-  position: absolute;
+  position: fixed;
   outline: 1px solid black;
   outline-offset: 1px;
-  writing-mode: vertical-rl;
-  text-orientation: sideways;
-  left:0;
+  left: -200px;
+  bottom: 28%;
+  transform: rotate(-90deg);
+  transform-origin: top;
 }
 
 .sidenavTester {
-
+  display: inline-block;
+  margin: 0 6px;
+  position: relative;
+  width: 16%;
+  background-color: white;
+  transform-origin: bottom left;
+  left: 0%;
+  font-size: 12px;
 }
 
 .projectcontent {
@@ -110,13 +120,13 @@ a {
     content: '';
     width: 76.5%;
     height: 275px;
-    transform: translate(-96%, -53%);
+    transform: translate(-96%, -58%);
     border: 3px solid #ffce00;
     transition: transform 150ms ease-in-out;
   }
 
   .projectcontainer:hover::after{
-    transform:translate(-93%, -49%); /*left/right, top/bottom*/
+    transform:translate(-92%, -49%); /*left/right, top/bottom*/
   }
 
 .project {
