@@ -23,14 +23,14 @@ class PageSelector extends React.Component {
 class Project extends React.Component {
   render() {
     return (
-      <Link to={"/projects/" + this.props.title.replace(/\s/g, '')}>
         <div className="projectcontainer">
-          <div className="project" id={this.props.title.replace(/\s/g, '')}>
-            <p>{this.props.title}</p>
-            <h2>{this.props.description}</h2>
-          </div>
+          <Link to={"/projects/" + this.props.title.replace(/\s/g, '')}>
+            <div className="project" id={this.props.title.replace(/\s/g, '')}>
+              <p>{this.props.title}</p>
+              <h2>{this.props.description}</h2>
+            </div>
+          </Link>
         </div>
-      </Link>
     )
   }
 }
@@ -50,6 +50,20 @@ class ProjectList extends React.Component {
             return <Project title={project.title} description={project.description} key={i} selection={this.props.selection}/>
           }, this
         )}
+      </div>
+    );
+  }
+}
+
+class MePage extends React.Component {
+
+  render() {
+    return ( // we must return one parent div; you cant return two childs for some rando reason
+      <div className="mePage">
+          <h2>Hayyyyy girl</h2>
+          <h3>Hows it hanging?</h3>
+          <p>left or right... heh</p>
+          <div className="extradiv">this is an extra div</div>
       </div>
     );
   }
@@ -83,7 +97,7 @@ class Home extends React.Component {
         </div>
       )
     }
-    else content = <p>Will develop soon!</p> // TODO: this is where we develop ME section
+    else content = <MePage/>
 
     // Added a link here
     return (

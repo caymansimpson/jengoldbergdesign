@@ -48,13 +48,18 @@ class ProjectHeader extends React.Component {
         <div className="projectTitle">
           <p>{this.props.project.title}</p>
         </div>
-
-        {this.props.project.uxr !== undefined && this.props.project.design !== undefined && // only show choice if there is any
-          <div className={"projectSelections " + (this.props.clicked !== null? 'clicked': '')}>
-            {this.props.project.uxr !== undefined && <div className="projectOption" val="uxr" onClick={(e) => this.props.handleClick(e, "uxr")}>User Research</div>}
-            {this.props.project.design !== undefined && <div className="projectOption" val="design" onClick={(e) => this.props.handleClick(e, "design")}>Design</div>}
-          </div>
-        }
+        <div class="blah"> {/*temporary*/}
+          {this.props.project.uxr !== undefined && this.props.project.design !== undefined && // only show choice if there is any
+            <div className={"projectSelections " + (this.props.clicked !== null? 'clicked': '')} val="uxr" onClick={(e) => this.props.handleClick(e, "uxr")}>
+              {this.props.project.uxr !== undefined && <div className="projectOption">User Research</div>}
+            </div>
+          }
+          {this.props.project.uxr !== undefined && this.props.project.design !== undefined && // only show choice if there is any
+            <div className={"projectSelections " + (this.props.clicked !== null? 'clicked': '')} val="design" onClick={(e) => this.props.handleClick(e, "design")}>
+              {this.props.project.design !== undefined && <div className="projectOption">Design</div>}
+            </div>
+          }
+        </div>
       </div>
     );
   }
