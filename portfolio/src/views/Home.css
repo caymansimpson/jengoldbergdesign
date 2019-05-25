@@ -101,14 +101,13 @@ a {
   text-decoration: none;
 }
 
+
 .projectcontainer {
   background-color: #fff0e1;
-  width: 60%;
+  width: 80%;
   height: 275px;
   margin: 0px 5% 50px 15%; /*order is top right bottom left*/
   text-align:right;
-  padding-right: 5%;
-  padding-left: 15%;
 }
 
 .projectcontainer:hover {
@@ -120,16 +119,19 @@ a {
     content: '';
     width: 76.5%;
     height: 275px;
-    transform: translate(-96%, -58%);
+    transform: translate(-103%, -104%);
     border: 3px solid #ffce00;
     transition: transform 150ms ease-in-out;
+    pointer-events: none;
   }
 
   .projectcontainer:hover::after{
-    transform:translate(-92%, -49%); /*left/right, top/bottom*/
+    transform:translate(-98%, -94%); /*left/right, top/bottom*/
   }
 
 .project {
-  padding: 2vh;
-  top: 10%;
+  padding: 20px 5% 0px 15%;
+  height: 255px;
+  width: 80%;
+  position: relative;
 }

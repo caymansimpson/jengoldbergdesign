@@ -47,26 +47,30 @@ and includes when you click to choose what is shown*/
 	margin-right: 5%;
 }
 
+.blah{
+	position:fixed;
+	top:45%;
+	height: 55%;
+	width: 100%;
+}
 /* this is the div that contains User Research and Branding- this will be the click to choose */
 .projectSelections {
-  height: 55%;
+  height: 100%;
   width:50%; /*two of these, to hold each projectOption*/
   display: inline-block;
-  top:45%;
-  position:fixed;
-  font-size: 3em;
+  position: relative;
   cursor: pointer;
   background-color: #fff0e1;
+  float:left;
+  font-size: 3em;
 }
 
 .projectOption { /*this will be for centering the text inside the projectSelections divs*/
   width:100%;
   position: relative;
-  height: 100%;
+  height: 50%;
   text-align:center;
-  float:left;
-  top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(70%);
 }
 
 /* This class gets added to the .projectSelections div when you either have no options to choose from between UXR and Branding
