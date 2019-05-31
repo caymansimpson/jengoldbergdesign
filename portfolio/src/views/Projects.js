@@ -4,7 +4,7 @@ import './Home';
 import '../App';
 import './Projects.css';
 //import { render } from "react-dom";
-import { Link, Router } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 // Passing down the changePage function so we can activate it when a click on a span happens
 class NavSelector extends React.Component {
@@ -43,10 +43,10 @@ class ProjectHeader extends React.Component {
     return (
       <div className='projectHeader'>
         <div className='projectDescription'>
-          <p>{this.props.project.description}</p>
+          <p dangerouslySetInnerHTML={{ __html: this.props.project.description}}/>
         </div>
         <div className="projectTitle">
-          <p>{this.props.project.title}</p>
+          <p dangerouslySetInnerHTML={{ __html: this.props.project.title}}/>
         </div>
         <div class="blah"> {/*temporary*/}
           {this.props.project.uxr !== undefined && this.props.project.design !== undefined && // only show choice if there is any
@@ -70,10 +70,10 @@ class TextSection extends React.Component {
     return (
       <div>
         <div className='sectionTitle'>
-          <h2>{this.props.project.name}</h2>
+          <h2 dangerouslySetInnerHTML={{ __html: this.props.project.name}}/>
         </div>
         <div className='sectionDescription'>
-          <p>{this.props.project.description}</p>
+          <p dangerouslySetInnerHTML={{ __html: this.props.project.description}}/>
         </div>
       </div>
     );
@@ -85,20 +85,16 @@ class ColumnSection extends React.Component {
     return (
       <div>
         <div className='columnSectionTitle'>
-          <h2>{this.props.project.name}</h2>
+          <h2 dangerouslySetInnerHTML={{ __html: this.props.project.name}}/>
         </div>
         <div className='columnHolder'>
           {
             this.props.project.columns.map(function(u, i) {
               return (
                 <div>
-                  <div className='columnTitle'>
-                    {u.name}
-                  </div>
-                  <div className='columnText'>
-                    {u.description}
-                  </div>
-              </div>
+                  <div className='columnTitle' dangerouslySetInnerHTML={{ __html: u.name}}/>
+                  <div className='columnText' dangerouslySetInnerHTML={{ __html: u.description}}/>
+                </div>
               )
             })
           }
@@ -113,7 +109,7 @@ class QuoteSection extends React.Component {
     return (
       <div>
         <div className='quoteSection'>
-          <h2 className='quoteText'>{this.props.project.description}</h2>
+          <h2 className='quoteText' dangerouslySetInnerHTML={{ __html: this.props.project.description}}/>
         </div>
       </div>
     );
@@ -140,6 +136,11 @@ class Projects extends React.Component {
     this.setState({'clicked': val})
   }
 
+  // Scroll to top after component rendered
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
+
   render() {
     return (
       <div>
@@ -157,6 +158,7 @@ class Projects extends React.Component {
               if(u.type === "text") return <TextSection project={u} key={i}/>
               else if (u.type === "column") return <ColumnSection project={u} key={i}/>
               else if (u.type === "quote") return <QuoteSection project={u} key={i}/>
+              return null;
             }, this)
           }
         </div>

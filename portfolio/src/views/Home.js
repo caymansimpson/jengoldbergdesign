@@ -4,30 +4,36 @@ import './Home.css';
 import '../App';
 import './Home';
 //import { render } from "react-dom";
-import { Link, Router } from "react-router-dom"
+import { Link } from "react-router-dom"
+
+// npm install --save react-css-transition-replace
+import ReactCSSTransitionReplace from 'react-css-transition-replace';
+
+
+
 
 
 class PageSelector extends React.Component {
   // Passing down the changePage function so we can activate it when a click on a span happens
+
   render() {
     return (
       <div className="column">
-        <span className={this.props.emphasis} onClick={(e) => this.props.changePage(this.props.text, e)}>
-          {this.props.text}
-        </span>
+        <span className={this.props.emphasis} onClick={(e) => this.props.changePage(this.props.text, e)} dangerouslySetInnerHTML={{ __html: this.props.text}}/>
       </div>
     );
   }
 }
 
+// Link to project; we define which project to link to by using the same process in App.js
 class Project extends React.Component {
   render() {
     return (
         <div className="projectcontainer">
           <Link to={"/projects/" + this.props.title.replace(/\s/g, '')}>
             <div className="project" id={this.props.title.replace(/\s/g, '')}>
-              <p>{this.props.title}</p>
-              <h2>{this.props.description}</h2>
+              <p dangerouslySetInnerHTML={{ __html: this.props.title}}/>
+              <h2 dangerouslySetInnerHTML={{ __html: this.props.description}}/>
             </div>
           </Link>
         </div>
@@ -71,10 +77,16 @@ class MePage extends React.Component {
 
 
 // Events: https://stackoverflow.com/questions/21285923/reactjs-two-components-communicating
+/* Receives the following props:
+- projects: json data of all projects
+- selected: the value that we should display
+- headerOrder: the order of the headers
+- shift: how we should shift upon entering
+*/
 class Home extends React.Component {
-  constructor(props) {
-    super(props);
-  }  // boilerplate code
+  // constructor(props) {
+  //   super(props);
+  // }  // boilerplate code
 
   render() {
     const selected = this.props.selected;
@@ -83,8 +95,7 @@ class Home extends React.Component {
     if(selected !== "Me") {
       content = (
         <div>
-          <div className="sidenav"> {//TODO: testing
-          }
+          <div className="sidenav"> {/*TODO: testing*/}
             <div className="sidenavTester">Project 1</div>
             <div className="sidenavTester">Project 2</div>
             <div className="sidenavTester">Project 3</div>
@@ -99,23 +110,58 @@ class Home extends React.Component {
     }
     else content = <MePage/>
 
-    // Added a link here
+    const transitionEnter = 1000;
+    const transitionLeave = 400;
+
     return (
       <div className="home">
         <div className="mainheader">
           <h1>Jen Goldberg</h1>
-          <div className="pageselections">
-            { // the "this" at the end of the map function allows us to use changePage inside the map function
-              this.props.headerOrder.map(function(u, i) {
-                return <PageSelector text={u} key={i} changePage={this.props.changePage} emphasis={i===1? "emphasis": ""}/>
-              }, this)
-            }
-          </div>
+          {/* <ReactCSSTransitionReplace
+            transitionName="fade"
+             transitionEnterTimeout={transitionEnter}
+             transitionLeaveTimeout={transitionLeave}
+          > */}
+            <div className="pageselections" key="trying">
+              { // the "this" at the end of the map function allows us to use changePage inside the map function
+                this.props.headerOrder.map(function(u, i) {
+                  /*left or right 33%, different animations
+                    left shift (affecting right CSS): regular, regular from emphasis, regular to emphasis
+                    right shift (affecting left CSS): regular, regular from emphasis, regular to emphasis
+                  */
+                  // this is being called before changing
+                  // console.log(
+                  //   "In rewriting page selectors;",
+                  //   "\nKey: selector" + u.toString().replace(/\s/g, ''),
+                  //   "\nAnimation Name: selector-shift-", this.props.shift,  i===1? "-emphasis":""
+                  // )
+
+                  return (
+                    <PageSelector
+                      text={u}
+                      key={"selector" + u.replace(/\s/g, '')}
+                      changePage={this.props.changePage}
+                      emphasis={i===1? "emphasis": ""}
+                    />
+                  )
+                }, this)
+              }
+            </div>
+        {/* </ReactCSSTransitionReplace> */}
+
         </div>
 
-        <div className="main">
-          {content}
-        </div>
+        {/* Syntax from http://reactcommunity.org/react-transition-group/transition */}
+        <ReactCSSTransitionReplace
+          transitionName={"shift-" + this.props.shift}
+          transitionEnterTimeout={transitionEnter}
+          transitionLeaveTimeout={transitionLeave}
+        >
+          <div className="main" key={this.props.selected}>
+              {content}
+          </div>
+        </ReactCSSTransitionReplace>
+
       </div>
     );
   }

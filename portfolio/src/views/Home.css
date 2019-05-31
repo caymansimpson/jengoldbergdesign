@@ -60,6 +60,7 @@
   position: relative;
 }
 
+
 .sidenav {
   width: 62.6vh;
   height: 1vw;
@@ -135,3 +136,47 @@ a {
   width: 80%;
   position: relative;
 }
+
+
+
+
+/* ============= ANIMATION SECTION ========================== */
+
+/* Header Shift */
+
+.fade-wait-leave {
+  opacity: 1;
+}
+.fade-wait-leave.fade-wait-leave-active {
+  opacity: 0;
+  transition: opacity 0.4s ease-in;
+}
+
+.fade-wait-enter {
+  opacity: 0;
+}
+.fade-wait-enter.fade-wait-enter-active {
+  opacity: 1;
+  /* Delay the enter animation until the leave completes */
+  transition: opacity 0.4s ease-in 0.6s;
+}
+
+.fade-wait-height {
+  transition: height 0.6s ease-in-out;
+}
+
+/* Project shifts */
+
+/*Shift Right*/
+.shift-right-leave {left: 0%;}
+.shift-right-leave.shift-right-leave-active {left: 100%; transition: left .4s ease;}
+.shift-right-enter {right: 100%;}
+.shift-right-enter.shift-right-enter-active {right: 0%; transition: right ease .4s;}
+/* .shift-right-height {transition: height .6s ease;} */
+
+/*Shift Left*/
+.shift-left-leave {right: 0%;}
+.shift-left-leave.shift-left-leave-active {right: 100%; transition: right .4s ease;}
+.shift-left-enter {left: 100%;}
+.shift-left-enter.shift-left-enter-active {left: 0%; transition: left ease .4s;}
+/* .shift-left-height {transition: height .6s ease;} */

@@ -9,33 +9,36 @@ import {BrowserRouter, Route} from 'react-router-dom';
 class App extends Component {
   constructor(props) {
     super(props)
-    this.state = {'selected': 'UXR'};
+    this.state = {'selected': 'UXR', 'shift': ''};
     this.changePage = this.changePage.bind(this);
-    this.headerOrder = ["Graphic Design", "UXR", "Me"] // This is default
+    this.headerOrder = ["Graphic Design", "UXR", "Me"]; // This is default
+    this.shift = '';
   }
 
   // Function called when someone clicks on the text in a PageSelector; must change headerOrder
   // before we change state so that when component renders because of statechange, headerOrder is already set
   changePage(selection, e) {
 
+    let shift = null;
+
     // Figure out which direction we should shift the array and shift it before we change the state
-    console.log("this is the state:", this.state.selected)
     if(this.headerOrder.indexOf(selection) === 0) {
       this.headerOrder.unshift(this.headerOrder.pop())
-      console.log("shift right")
+      shift = 'right';
     }
     else if(this.headerOrder.indexOf(selection) === 2) {
       this.headerOrder.push(this.headerOrder.shift())
-      console.log("shift left")
+      shift = 'left'
     } else {
-      console.log("rendering w/ no shift")
+      shift = '';
     }
 
     this.setState({
-      'selected': selection
+      'selected': selection,
+      'shift': shift
     }, function() {
-      console.log("changed state to", this.state.selected)}
-    )
+      console.log("In changePage; changed state to", this.state.selected, "and shifting", this.shift)
+    })
   }
 
   render() {
@@ -48,6 +51,7 @@ class App extends Component {
               changePage={this.changePage}
               selected={this.state.selected}
               headerOrder={this.headerOrder}
+              shift={this.state.shift}
             />
           )}/>
           <Route exact={true} path='/projects/:id' render={(props) => (
