@@ -41,7 +41,7 @@
   padding: 0 6px;
 }
 
-.mainheader .column {
+.mainheader .columnholder {
   position: relative;
   width: 33%;
   float: left;
@@ -137,10 +137,21 @@ a {
   position: relative;
 }
 
+.mePage {
+  /* Need a significant minimum height for the mePage container for the animation to look proper */
+  min-height: 1000px;
+}
 
 
+/* ============= ANIMATION SECTION ==========================
+Notes: need to change the transitionTime variable in Home.js (defined in ms)
+       along with the transition times specified in the "transition" CSS element
+       to ensure the transition is working smoothly. This is because the javascript
+       needs to know how long to apply each of these animation classes, and the CSS
+       needs to know how long to do the transition.
 
-/* ============= ANIMATION SECTION ========================== */
+*/
+
 
 /* Header Shift */
 
@@ -149,7 +160,7 @@ a {
 }
 .fade-wait-leave.fade-wait-leave-active {
   opacity: 0;
-  transition: opacity 0.4s ease-in;
+  transition: opacity .4s ease-in;
 }
 
 .fade-wait-enter {
@@ -158,25 +169,21 @@ a {
 .fade-wait-enter.fade-wait-enter-active {
   opacity: 1;
   /* Delay the enter animation until the leave completes */
-  transition: opacity 0.4s ease-in 0.6s;
-}
-
-.fade-wait-height {
-  transition: height 0.6s ease-in-out;
+  transition: opacity ease-in .4s;
 }
 
 /* Project shifts */
 
-/*Shift Right*/
+/* Shift Right*/
 .shift-right-leave {left: 0%;}
 .shift-right-leave.shift-right-leave-active {left: 100%; transition: left .4s ease;}
 .shift-right-enter {right: 100%;}
 .shift-right-enter.shift-right-enter-active {right: 0%; transition: right ease .4s;}
-/* .shift-right-height {transition: height .6s ease;} */
+.shift-right-height {transition: height .4s ease;}
 
 /*Shift Left*/
 .shift-left-leave {right: 0%;}
 .shift-left-leave.shift-left-leave-active {right: 100%; transition: right .4s ease;}
 .shift-left-enter {left: 100%;}
 .shift-left-enter.shift-left-enter-active {left: 0%; transition: left ease .4s;}
-/* .shift-left-height {transition: height .6s ease;} */
+.shift-left-height {transition: height .4s ease;}

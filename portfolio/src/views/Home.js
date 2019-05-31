@@ -2,7 +2,6 @@ import React from 'react';
 // import logo from '../images/logo.svg'; how to import photos; code: src={logo}
 import './Home.css';
 import '../App';
-import './Home';
 //import { render } from "react-dom";
 import { Link } from "react-router-dom"
 
@@ -12,18 +11,6 @@ import ReactCSSTransitionReplace from 'react-css-transition-replace';
 
 
 
-
-class PageSelector extends React.Component {
-  // Passing down the changePage function so we can activate it when a click on a span happens
-
-  render() {
-    return (
-      <div className="column">
-        <span className={this.props.emphasis} onClick={(e) => this.props.changePage(this.props.text, e)} dangerouslySetInnerHTML={{ __html: this.props.text}}/>
-      </div>
-    );
-  }
-}
 
 // Link to project; we define which project to link to by using the same process in App.js
 class Project extends React.Component {
@@ -66,7 +53,7 @@ class MePage extends React.Component {
   render() {
     return ( // we must return one parent div; you cant return two childs for some rando reason
       <div className="mePage">
-          <h2>Hayyyyy girl</h2>
+          <h2>I love you!</h2>
           <h3>Hows it hanging?</h3>
           <p>left or right... heh</p>
           <div className="extradiv">this is an extra div</div>
@@ -110,8 +97,7 @@ class Home extends React.Component {
     }
     else content = <MePage/>
 
-    const transitionEnter = 1000;
-    const transitionLeave = 400;
+    const transitionTime = 400;
 
     return (
       <div className="home">
@@ -130,19 +116,30 @@ class Home extends React.Component {
                     right shift (affecting left CSS): regular, regular from emphasis, regular to emphasis
                   */
                   // this is being called before changing
-                  // console.log(
-                  //   "In rewriting page selectors;",
-                  //   "\nKey: selector" + u.toString().replace(/\s/g, ''),
-                  //   "\nAnimation Name: selector-shift-", this.props.shift,  i===1? "-emphasis":""
-                  // )
+                  console.log(
+                    "In rewriting page selectors;",
+                    "\nKey: selector" + u.toString().replace(/\s/g, ''),
+                    "\nAnimation Name: selector-shift-" + this.props.shift + (i===1? "-emphasis":"")
+                  )
 
                   return (
-                    <PageSelector
-                      text={u}
-                      key={"selector" + u.replace(/\s/g, '')}
-                      changePage={this.props.changePage}
-                      emphasis={i===1? "emphasis": ""}
-                    />
+                    <div className='columnholder'>
+                      <ReactCSSTransitionReplace
+                        transitionName="fade"
+                        transitionEnterTimeout={transitionTime}
+                        transitionLeaveTimeout={transitionTime}
+                      >
+                        <div className="column" key={"selector" + u.replace(/\s/g, '')}>
+                          <span
+                            key={"selector1" + u.replace(/\s/g, '')}
+                            className={i===1? "emphasis": ""}
+                            onClick={(e) => this.props.changePage(u, e)}
+                            dangerouslySetInnerHTML={{ __html: u}}
+                          />
+                        </div>
+
+                      </ReactCSSTransitionReplace>
+                    </div>
                   )
                 }, this)
               }
@@ -154,8 +151,8 @@ class Home extends React.Component {
         {/* Syntax from http://reactcommunity.org/react-transition-group/transition */}
         <ReactCSSTransitionReplace
           transitionName={"shift-" + this.props.shift}
-          transitionEnterTimeout={transitionEnter}
-          transitionLeaveTimeout={transitionLeave}
+          transitionEnterTimeout={transitionTime}
+          transitionLeaveTimeout={transitionTime}
         >
           <div className="main" key={this.props.selected}>
               {content}
