@@ -124,9 +124,9 @@ class Home extends React.Component {
                         transitionEnterTimeout={transitionTime}
                         transitionLeaveTimeout={transitionTime}
                       >
-                        <div className="column" key={"selector" + u.replace(/\s/g, '')}>
+                        <div className="column" key={u}>
                           <span
-                            key={"selector1" + u.replace(/\s/g, '')}
+                            key={u}
                             className={i===1? "emphasis": ""}
                             onClick={(e) => this.props.changePage(u, e)}
                             dangerouslySetInnerHTML={{ __html: u}}

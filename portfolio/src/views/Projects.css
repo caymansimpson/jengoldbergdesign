@@ -29,10 +29,11 @@ and includes when you click to choose what is shown*/
 }
 
 .projectDescription {
-	font-size: 3em;
+	font-size: 300%;
 	text-align: right;
 	padding: 0 5% 0 10%;
 	position: relative;
+  min-height: 35px;
 }
 
 .projectDescription p {
@@ -53,29 +54,45 @@ and includes when you click to choose what is shown*/
 .projectSelections {
   height: 100%;
   width:50%; /*two of these, to hold each projectOption*/
-  display: inline-block;
+  display: table;
   position: relative;
   cursor: pointer;
   background-color: #fff0e1;
   float:left;
-  font-size: 3em;
+  font-size: 300%;
 }
 
 .projectOption { /*this will be for centering the text inside the projectSelections divs*/
   width:100%;
   position: relative;
+  display: table-cell;
   text-align:center;
-  /* transform: translateY(205vh); TODO: figure out how to make project option go to center*/
+  height: 100%;
+  vertical-align: middle;
 }
 
-/* This class gets added to the .projectSelections div when you either have no options to choose from between UXR and Branding
-or if a user has clicked on one to show the contents of the project! */
+/* This class gets added to the .projectSelections div when you either have no options to
+choose from between UXR and Branding or if a user has clicked on one to show the contents
+of the project! I transition the height so that it's not jarring */
 .clicked {
   height: 50px;
-  font-size: 1.5em;
-  transition: font-size height .4s ease; /* TODO: figure out how to transition */
+  font-size: 130%;
+  transition: height .4s;
 }
 
+/* Sticky Header Stuff*/
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+
+/*
+section stuff is the CSS that goes for each independent section for each project.
+If you want customization, we can talk about
+how to add that in!
+*/
 .projectdescriptionholder {/*This holds the sections/ story of the projects and sits underneath the header*/
 	position:absolute;
 	width:100%;
@@ -83,8 +100,6 @@ or if a user has clicked on one to show the contents of the project! */
 	height: auto;
 }
 
-/* section stuff is the CSS that goes for each independent section for each project. If you want customization, we can talk about
-how to add that in! */
 .sectionTitle {
 	width: 90%;
 	margin: 40px 0 10px 10%;

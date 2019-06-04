@@ -136,15 +136,22 @@ class Projects extends React.Component {
     this.setState({'clicked': val})
   }
 
+  // add scroll event
+  componentDidMount() {
+    window.scrollTo(0, 0)
+    window.addEventListener('scroll', this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
   // Handles how to change the header height when a user scrolls TODO: get this to print
   handleScroll(e) {
     // Can
-    console.log(e)
-  }
-
-  // Scroll to top after component rendered
-  componentDidMount() {
-    window.scrollTo(0, 0)
+    // console.log(document.getElementsByClassName('projectDescription')[0].style)//.style.fontSize=(300 - window.pageYOffset) + "%";
+    // document.getElementsByClassName('projectDescription')[0].style.fontSize=(300 - window.pageYOffset) + "%";
+    // console.log(window.pageYOffset, 300 - window.pageYOffset)
   }
 
   render() {
@@ -154,7 +161,7 @@ class Projects extends React.Component {
         <ProjectHeader
           clicked={this.state.clicked} project={this.props.project} handleClick={this.handleClick}
         />
-        <div className='projectdescriptionholder' onClick={(e) => this.handleScroll(e)}>
+        <div className='projectdescriptionholder'>
           {this.state.clicked !== null && // only display something if something was clicked, and choose which to display
             (this.state.clicked === 'uxr'? this.props.project.uxr : this.props.project.design).map(function(u, i) {
               if(u.type === "text") return <TextSection project={u} key={i}/>
