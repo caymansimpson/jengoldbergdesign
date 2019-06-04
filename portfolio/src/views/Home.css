@@ -149,7 +149,6 @@ Notes: need to change the transitionTime variable in Home.js (defined in ms)
        to ensure the transition is working smoothly. This is because the javascript
        needs to know how long to apply each of these animation classes, and the CSS
        needs to know how long to do the transition.
-
 */
 
 

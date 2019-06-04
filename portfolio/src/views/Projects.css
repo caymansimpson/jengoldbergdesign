@@ -3,7 +3,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  height: 10%;
+  height: 10vh;
   background-color:#ffce00;
   padding: 0 3.5%;
   z-index:1;
@@ -23,34 +23,30 @@
 /* projectHeader is the thing at the top below smallHeader that shows the project title and .projectDescription
 and includes when you click to choose what is shown*/
 .projectHeader {
-  top:10%;
-  position: fixed;
-  width:100%;
-  height: 35%;
-  background-color: burlywood;
-  z-index:1;
+  margin-top:10vh;
+  background-color: white;
+  position: relative;
 }
-
 
 .projectDescription {
 	font-size: 3em;
 	text-align: right;
 	padding: 0 5% 0 10%;
-	top:-10%;
 	position: relative;
+}
+
+.projectDescription p {
+  margin: 0;
 }
 
 .projectTitle {
-	float:right;
 	position: relative;
-	top: -40%;
-	margin-right: 5%;
+  text-align: right;
+  margin-right: 8vw;
 }
 
-.blah{
-	position:fixed;
-	top:45%;
-	height: 55%;
+.projectSelectionHolder{
+	height: 55vh;
 	width: 100%;
 }
 /* this is the div that contains User Research and Branding- this will be the click to choose */
@@ -68,21 +64,20 @@ and includes when you click to choose what is shown*/
 .projectOption { /*this will be for centering the text inside the projectSelections divs*/
   width:100%;
   position: relative;
-  height: 50%;
   text-align:center;
-  transform: translateY(70%);
+  /* transform: translateY(205vh); TODO: figure out how to make project option go to center*/
 }
 
 /* This class gets added to the .projectSelections div when you either have no options to choose from between UXR and Branding
 or if a user has clicked on one to show the contents of the project! */
 .clicked {
-  height: 7%;
-  font-size: 1.75em;
+  height: 50px;
+  font-size: 1.5em;
+  transition: font-size height .4s ease; /* TODO: figure out how to transition */
 }
 
 .projectdescriptionholder {/*This holds the sections/ story of the projects and sits underneath the header*/
 	position:absolute;
-	top: 51%;
 	width:100%;
 	background-color: white;
 	height: auto;

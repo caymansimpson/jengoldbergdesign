@@ -48,18 +48,16 @@ class ProjectHeader extends React.Component {
         <div className="projectTitle">
           <p dangerouslySetInnerHTML={{ __html: this.props.project.title}}/>
         </div>
-        <div class="blah"> {/*temporary*/}
-          {this.props.project.uxr !== undefined && this.props.project.design !== undefined && // only show choice if there is any
-            <div className={"projectSelections " + (this.props.clicked !== null? 'clicked': '')} val="uxr" onClick={(e) => this.props.handleClick(e, "uxr")}>
-              {this.props.project.uxr !== undefined && <div className="projectOption">User Research</div>}
-            </div>
-          }
-          {this.props.project.uxr !== undefined && this.props.project.design !== undefined && // only show choice if there is any
-            <div className={"projectSelections " + (this.props.clicked !== null? 'clicked': '')} val="design" onClick={(e) => this.props.handleClick(e, "design")}>
-              {this.props.project.design !== undefined && <div className="projectOption">Design</div>}
-            </div>
-          }
-        </div>
+        {this.props.project.uxr !== undefined && this.props.project.design !== undefined && // only show this if we have multiple to choose from
+          <div className={"projectSelectionHolder " + (this.props.clicked !== null? 'clicked': '')}> {/*temporary*/}
+              <div className={"projectSelections " + (this.props.clicked !== null? 'clicked': '')} val="uxr" onClick={(e) => this.props.handleClick(e, "uxr")}>
+                {this.props.project.uxr !== undefined && <div className="projectOption">User Research</div>}
+              </div>
+              <div className={"projectSelections " + (this.props.clicked !== null? 'clicked': '')} val="design" onClick={(e) => this.props.handleClick(e, "design")}>
+                {this.props.project.design !== undefined && <div className="projectOption">Design</div>}
+              </div>
+          </div>
+        }
       </div>
     );
   }
@@ -130,10 +128,18 @@ class Projects extends React.Component {
 
     this.state = {'clicked': clicked}
     this.handleClick = this.handleClick.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
   }
 
+  // Handles when a user clicks on a project that has both UXR and Design elements
   handleClick(e, val) {
     this.setState({'clicked': val})
+  }
+
+  // Handles how to change the header height when a user scrolls TODO: get this to print
+  handleScroll(e) {
+    // Can
+    console.log(e)
   }
 
   // Scroll to top after component rendered
@@ -148,11 +154,7 @@ class Projects extends React.Component {
         <ProjectHeader
           clicked={this.state.clicked} project={this.props.project} handleClick={this.handleClick}
         />
-        {/* <h1>Projects baby!</h1>
-        <p>ID of project: {this.props.id}</p>
-        <p>State of App: {this.props.selected}</p>
-        <p>Clicked: {this.state.clicked !== null? "clicked" : "not clicked"}</p> */}
-        <div className='projectdescriptionholder'>
+        <div className='projectdescriptionholder' onClick={(e) => this.handleScroll(e)}>
           {this.state.clicked !== null && // only display something if something was clicked, and choose which to display
             (this.state.clicked === 'uxr'? this.props.project.uxr : this.props.project.design).map(function(u, i) {
               if(u.type === "text") return <TextSection project={u} key={i}/>

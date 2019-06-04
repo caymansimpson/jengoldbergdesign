@@ -82,7 +82,7 @@ class Home extends React.Component {
     if(selected !== "Me") {
       content = (
         <div>
-          <div className="sidenav"> {/*TODO: testing*/}
+          <div className="sidenav" style={{"opacity": 0}}> {/*TODO: implement */}
             <div className="sidenavTester">Project 1</div>
             <div className="sidenavTester">Project 2</div>
             <div className="sidenavTester">Project 3</div>
@@ -103,11 +103,6 @@ class Home extends React.Component {
       <div className="home">
         <div className="mainheader">
           <h1>Jen Goldberg</h1>
-          {/* <ReactCSSTransitionReplace
-            transitionName="fade"
-             transitionEnterTimeout={transitionEnter}
-             transitionLeaveTimeout={transitionLeave}
-          > */}
             <div className="pageselections" key="trying">
               { // the "this" at the end of the map function allows us to use changePage inside the map function
                 this.props.headerOrder.map(function(u, i) {
@@ -124,7 +119,7 @@ class Home extends React.Component {
 
                   return (
                     <div className='columnholder'>
-                      <ReactCSSTransitionReplace
+                      <ReactCSSTransitionReplace /* TODO: fix key error to get transitions to work*/
                         transitionName="fade"
                         transitionEnterTimeout={transitionTime}
                         transitionLeaveTimeout={transitionTime}
@@ -144,11 +139,8 @@ class Home extends React.Component {
                 }, this)
               }
             </div>
-        {/* </ReactCSSTransitionReplace> */}
-
         </div>
 
-        {/* Syntax from http://reactcommunity.org/react-transition-group/transition */}
         <ReactCSSTransitionReplace
           transitionName={"shift-" + this.props.shift}
           transitionEnterTimeout={transitionTime}
