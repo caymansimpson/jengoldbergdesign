@@ -106,21 +106,10 @@ class Home extends React.Component {
             <div className="pageselections" key="trying">
               { // the "this" at the end of the map function allows us to use changePage inside the map function
                 this.props.headerOrder.map(function(u, i) {
-                  /*left or right 33%, different animations
-                    left shift (affecting right CSS): regular, regular from emphasis, regular to emphasis
-                    right shift (affecting left CSS): regular, regular from emphasis, regular to emphasis
-                  */
-                  // this is being called before changing
-                  console.log(
-                    "In rewriting page selectors;",
-                    "\nKey: selector" + u.toString().replace(/\s/g, ''),
-                    "\nAnimation Name: selector-shift-" + this.props.shift + (i===1? "-emphasis":"")
-                  )
-
                   return (
                     <div className='columnholder'>
-                      <ReactCSSTransitionReplace /* TODO: fix key error to get transitions to work*/
-                        transitionName="fade"
+                      <ReactCSSTransitionReplace //TODO: fix key error to get transitions to work
+                        transitionName={"shift-" + this.props.shift}
                         transitionEnterTimeout={transitionTime}
                         transitionLeaveTimeout={transitionTime}
                       >
