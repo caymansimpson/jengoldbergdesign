@@ -36,7 +36,8 @@ class ProjectList extends React.Component {
     return (
       <div className="projectlist">
         {this.props.projects.filter(function(u, i) { // filter to only projects we need to show based on selection
-          if(this.props.selection === 'UXR') return u.uxr !== undefined
+          console.log(this.props.selection)
+          if(this.props.selection === 'User Research') return u.uxr !== undefined
           else return u.design !== undefined
         }, this).map( // then iterate them through
           function(project, i) {

@@ -5,36 +5,6 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 
-const exampleBothProject = {
-  'title': 'Both Project',
-  'description': 'Providing middle skills training and connections to employers',
-  'uxr': [ // List of sections for UXR; don't include uxr if it's not a uxr project!
-      {'name': 'Context', 'type': 'text', 'description': 'uxr description. Rendezvous Cafe is a restaurant offering job training for people who are rebuilding their lives. The catering business allows the cafe to reian profitable but had a confusing and inefficient process for requests. Identify user and staff painpoints when processing their requests, simplify, and develop a solution.'},
-      {'name': 'Process', 'type': 'text', 'description': 'uxr description. Curus tellus, et efficitur augue dignissim sit amet. Cras a posuere lectus. Nulla posuere consectetur sapien, et accumsan urna condimentum a. Morbi viverra mi lorem, id bibendum neque mattis mollis. Aenean sit amet consequat nibh. Integer turpis felis, euismod in nisi nec, imperdiet faucibus magna. Morbi quam eros, accumsan quis rhoncus eget, mattis vel metus. Duis eu sapien libero. Vestibulum imperdiet rho'},
-      {'name': 'Summary', 'type': 'text', 'description': 'uxr description. Curfinibus tellus, et efficitur augue dignissim sit amet. Cras a posuere lectus. Nulla posuere consectetur sapien, et accumsan urna condimentum a. Morbi viverra mi lorem, id bibendum neque mattis mollis. Aenean sit amet consequat nibh. Integer turpis felis, euismod in nisi nec, imperdiet faucibus magna. Morbi quam eros, accumsan quis rhoncus eget, mattis vel metus. Duis eu sapien libero. Vestibulum imperdiet rh'}
-  ],
-  'design': [ // List of sections for Graphic Design
-      {'name': 'Context', 'type': 'text', 'description': 'design description. Rendezvous Cafe is a restaurant offering job training for people who are rebuilding their lives. The catering business allows the cafe to reian profitable but had a confusing and inefficient process for requests. Identify user and staff painpoints when processing their requests, simplify, and develop a solution.'},
-      {'name': 'Process', 'type': 'text', 'description': 'design description. nibus tellus, et effissim sit amet. Cras a posuere lectus. Nulla posuere consectetur sapien, et accumsan urna condimentum a. Morbi viverra mi lorem, id bibendum neque mattis mollis. Aenean sit amet consequat nibh. Integer turpis felis, euismod in nisi nec, imperdiet faucibus magna. Morbi quam eros, accumsan quis rhoncus eget, mattis vel metus. Duis eu sapien libero. Vestibulum imperdiet rhoncus augue, in ef'},
-      {'name': 'Summary', 'type': 'text', 'description': 'design description. finiissim sit amet. Cras a posuere lectus. Nulla posuere consectetur sapien, et accumsan urna condimentum a. Morbi viverra mi lorem, id bibendum neque mattis mollis. Aenean sit amet consequat nibh. Integer turpis felis, euismod in nisi nec, imperdiet faucibus magna. Morbi quam eros, accumsan quis rhoncus eget, mattis vel metus. Duis eu sapien libero. Vestibulum imperdiet rhoncus augue, in eff'}
-  ]
-}
-
-const exampleUXRProject = {
-  'title': 'UXR Project',
-  'description': 'Providing middle skills training and connections to employers',
-  'uxr': [ // List of sections for UXR; don't include uxr if it's not a uxr project!
-      {'name': 'Context', 'type': 'text', 'description': 'Rendezvous Cafe is a restaurant offering job training for people who are rebuilding their lives. The catering business allows the cafe to reian profitable but had a confusing and inefficient process for requests. Identify user and staff painpoints when processing their requests, simplify, and develop a solution.'},
-      {'name': 'Process', 'type': 'text', 'description': 'Curabitur fermentum finibus telur augue dignissim sit amet. Cras a posuere lectus. Nulla posuere consectetur sapien, et accumsan urna condimentum a. Morbi viverra mi lorem, id bibendum neque mattis mollis. Aenean sit amet consequat nibh. Integer turpis felis, euismod in nisi nec, imperdiet faucibus magna. Morbi quam eros, accumsan quis rhoncus eget, mattis vel metus. Duis eu sapien libero. Vestibulum imperdiet rhoncus augue, in effic.'},
-      {'name': 'Summary', 'type': 'text', 'description': 'Curabitur ferficitur augue dignissim sit amet. Cras a posuere lectus. Nulla posuere consectetur sapien, et accumsan urna condimentum a. Morbi viverra mi lorem, id bibendum neque mattis mollis. Aenean sit amet consequat nibh. Integer turpis felis, euismod in nisi nec, imperdiet faucibus magna. Morbi quam eros, accumsan quis rhoncus eget, mattis vel metus. Duis eu sapien libero. Vestibulum imperdiet rhoncus augue, in effic'},
-      {'name': 'Methodology', 'type': 'column', 'columns': [
-          {'name': 'Goals', 'description': 'My goal was to love jeg with all my heart! She loved me back after a while, but it took some time because of all the mozerella sticks I snatched from right under her nose.'},
-          {'name': 'Findings', 'description': 'That even if you snatch mozerella sticks, the love of your life will forgive you because youre so cute and handsome and great at making websites for the love of their life!!'}
-      ]},
-      {'type': 'quote', 'description': 'Heyooooooooooo'}
-  ]
-}
-
 const jobtrain = {
   'title': 'Jobtrain',
   'description': 'Creating a scalable soft skills curriculum',
@@ -84,7 +54,7 @@ const rendezvousCafe = {
       {'name': 'Personas', 'type': 'column', 'columns': [
           {'name': 'Goals', 'description': 'Who is currently ordering?'},
           {'name': 'Findings', 'description': '<ul><li>Two main order types: morning coffee/ breakfast and lunch/ dinner service</li><li>The preparation required varies vastly between these two</li><li>Morning coffee/ breakfast requires little preparation and operates from a mostly standardized menu. Lunch/ dinner services are developed in coordination with the customers’ needs, and require much more preparation because of this.</li><li>Businesses within the Sobrato Center (surrounding office park) are mainly the current customer, but Rendezvous would like to expand more within it, too, both in awareness and frequency of orders.</li></ul>'}
-      ]},
+      ], 'postColumn': 'hey what\'s up?'},
       {'name': 'Journey Mapping', 'type': 'column', 'columns': [
           {'name': 'Goals', 'description': 'Visualize and tell the story of the experience of ordering catering, from both the café’s perspective and the user’s.'},
           {'name': 'Findings', 'description': '<ul><li>Decrease tasks needed from the contact person at the café.</li><li>Increase interactions between contact person and the customer, to create transparency for the customer during the process.</li><li>Generate future business by increasing awareness through improved social media reviews.</li><li>Cut out inefficiencies in communication by automating parts of the process and centralizing data collection to be easily reproduced and shared. </li></ul><img src="./journeyMapCurrent.png"/><img src="./journeyMapProposed.png"/>'}
@@ -182,16 +152,6 @@ const sharksGrid = {
       {'name': 'Recommendations', 'type': 'text', 'description': '<ul><li>Focus on experience of watching at home to bring the experience and community to home-viewers. The community is an initial touchpoint for many fans, and continues to draw many others. It can also be a source of nostalgia, as fans remember family memories and traditions fondly.</li><li>Bring the experience and community of in-person games to at-home viewers can improve ratings and help bring new viewers into the sport.</li></ul>'},
       {'name': 'Deliverables', 'type': 'text', 'description': '<ul><li>Conceptual wireframe of a new app experience, connecting fans with other fans, creating similar experiences between at home viewers and stadium viewers, and celebrating diehard fans</li><li>Stakeholder presentation to CMO and Sharks Marketing team</li>'},
       {'name': 'Next Steps and Reflections', 'type': 'text', 'description': '<p>This was the first project where I needed to interview users at an event, and I was terrified. It took me a full half of the game before I got the courage to ask a fan about their experience, but I learned a lot about creating shared experiences, being brave, and just introducing yourself.</p>'},
-  ]
-}
-
-const exampleDesignProject = {
-  'title': 'Design Project',
-  'description': 'Providing middle skills training and connections to employers',
-  'design': [ // List of sections for Graphic Design
-    {'name': 'Context', 'type': 'text', 'description': 'Rendezvous Cafe is a restaurant offering job training for people who are rebuilding their lives. The catering business allows the cafe to reian profitable but had a confusing and inefficient process for requests. Identify user and staff painpoints when processing their requests, simplify, and develop a solution.'},
-    {'name': 'Process', 'type': 'text', 'description': 'Curabitur fermenus tellus, et efficitur augue dignissim sit amet. Cras a posuere lectus. Nulla posuere consectetur sapien, et accumsan urna condimentum a. Morbi viverra mi lorem, id bibendum neque mattis mollis. Aenean sit amet consequat nibh. Integer turpis felis, euismod in nisi nec, imperdiet faucibus magna. Morbi quam eros, accumsan quis rhoncus eget, mattis vel metus. Duis eu sapien libero. Vestibulum imperdiet rhoncus augue, in ef'},
-    {'name': 'Summary', 'type': 'text', 'description': 'Curabitur , et efficitur augue dignissim sit amet. Cras a posuere lectus. Nulla posuere consectetur sapien, et accumsan urna condimentum a. Morbi viverra mi lorem, id bibendum neque mattis mollis. Aenean sit amet consequat nibh. Integer turpis felis, euismod in nisi nec, imperdiet faucibus magna. Morbi quam eros, accumsan quis rhoncus eget, mattis vel metus. Duis eu sapien libero. Vestibulum imperdiet rhoncus augue, in eff'}
   ]
 }
 

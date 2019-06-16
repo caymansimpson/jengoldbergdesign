@@ -61,6 +61,15 @@ and includes when you click to choose what is shown*/
   float:left;
   font-size: 300%;
 }
+.projectSelections:first-child:after {
+  content: "";
+  background-color: #000;
+  position: absolute;
+  width: 1px;
+  height: 100%;
+  left: 99.75%;
+  display: block;
+}
 
 .projectOption { /*this will be for centering the text inside the projectSelections divs*/
   width:100%;
@@ -129,10 +138,16 @@ how to add that in!
 
 .columnHolder { /* this will hold the goal/ findings vert headers and the methodology section description*/
 	width:90%;
-	height: 400px;
+	overflow: auto;
 	padding-left: 10%;
 	position: relative;
 	display:block;
+}
+
+.postColumn { /* Defines CSS of section after columns */
+  position: relative;
+  width: 90%;
+  margin-left: 10%
 }
 
 .columnText{ /*this is the main text in the methodology section*/
