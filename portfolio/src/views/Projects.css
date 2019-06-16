@@ -115,6 +115,11 @@ how to add that in!
 	position: relative;
 }
 
+.sectionDescription img {
+	position:relative;
+	width:100%;
+}
+
 .columnSectionTitle{ /* this the the type of methodology used and will go on top of the section description*/
 	width: 90%;
 	margin-left: 10%;

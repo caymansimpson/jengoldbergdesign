@@ -196,10 +196,17 @@ const ladies = {
   'title': 'Design Project',
   'description': 'I do not know what to put here',
   'design': [ // List of sections for Graphic Design
-    {'name': 'Context', 'type': 'text', 'description': 'Rendezvous Cafe is a restaurant offering job training for people who are rebuilding their lives. The catering business allows the cafe to reian profitable but had a confusing and inefficient process for requests. Identify user and staff painpoints when processing their requests, simplify, and develop a solution.'},
-    {'name': 'Process', 'type': 'text', 'description': 'Curabitur fermenus tellus, et efficitur augue dignissim sit amet. Cras a posuere lectus. Nulla posuere consectetur sapien, et accumsan urna condimentum a. Morbi viverra mi lorem, id bibendum neque mattis mollis. Aenean sit amet consequat nibh. Integer turpis felis, euismod in nisi nec, imperdiet faucibus magna. Morbi quam eros, accumsan quis rhoncus eget, mattis vel metus. Duis eu sapien libero. Vestibulum imperdiet rhoncus augue, in ef'},
-    {'name': 'Summary', 'type': 'text', 'description': 'Curabitur , et efficitur augue dignissim sit amet. Cras a posuere lectus. Nulla posuere consectetur sapien, et accumsan urna condimentum a. Morbi viverra mi lorem, id bibendum neque mattis mollis. Aenean sit amet consequat nibh. Integer turpis felis, euismod in nisi nec, imperdiet faucibus magna. Morbi quam eros, accumsan quis rhoncus eget, mattis vel metus. Duis eu sapien libero. Vestibulum imperdiet rhoncus augue, in eff'},
-    {'name': 'Examples', 'type': 'text', 'description': '<img src="./images/ladies/nastyWoman1.jpg"/>'}
+    {'name': 'Context', 'type': 'text', 'description': 'I should figure out something to write here.'},
+    {'name': '', 'type': 'text', 'description': '<img src="./ladies/flowerWoman.png"/><img src="./ladies/flowerWoman2.png"/><img src="./ladies/flowerWoman3.png"/><img src="./ladies/nastyWoman1.jpg"/><img src="./ladies/nastyWoman2.jpg"/><img src="./ladies/nastyWoman3.jpg"/><img src="./ladies/nastyWoman4.jpg"/><img src="./ladies/fightWoman.png"/>'}
+  ]
+}
+
+const nature = {
+  'title': 'Design Project',
+  'description': 'I do not know what to put here2MODIFICATION',
+  'design': [ // List of sections for Graphic Design
+    {'name': 'Context', 'type': 'text', 'description': 'MODIFICATIONI should figure out here.'},
+    {'name': '', 'type': 'text', 'description': '<img src="./nature/sunset.png"/><img src="./nature/beach2.png"/><img src="./nature/junglev3.png"/><img src="./nature/Bridge.png"/><img src="./nature/beachv2.png"/><img src="./nature/flower.png"/>'}
   ]
 }
 
@@ -216,6 +223,7 @@ projects.push(atlasGuild)
 projects.push(museumClasses)
 projects.push(sharksGrid)
 projects.push(ladies)
+projects.push(nature)
 
 ReactDOM.render(<App projects={projects}/>, document.getElementById('root'));
 
