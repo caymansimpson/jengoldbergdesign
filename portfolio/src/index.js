@@ -87,7 +87,7 @@ const rendezvousCafe = {
       ]},
       {'name': 'Journey Mapping', 'type': 'column', 'columns': [
           {'name': 'Goals', 'description': 'Visualize and tell the story of the experience of ordering catering, from both the café’s perspective and the user’s.'},
-          {'name': 'Findings', 'description': '<ul><li>Decrease tasks needed from the contact person at the café.</li><li>Increase interactions between contact person and the customer, to create transparency for the customer during the process.</li><li>Generate future business by increasing awareness through improved social media reviews.</li><li>Cut out inefficiencies in communication by automating parts of the process and centralizing data collection to be easily reproduced and shared. </li></ul>'}
+          {'name': 'Findings', 'description': '<ul><li>Decrease tasks needed from the contact person at the café.</li><li>Increase interactions between contact person and the customer, to create transparency for the customer during the process.</li><li>Generate future business by increasing awareness through improved social media reviews.</li><li>Cut out inefficiencies in communication by automating parts of the process and centralizing data collection to be easily reproduced and shared. </li></ul><img src="./journeyMapCurrent.png"/><img src="./journeyMapProposed.png"/>'}
       ]},
       {'name': 'Recommendations', 'type': 'text', 'description': '<ul><li>Simplify ordering process and consolidate who has ownership, without requiring more time investment.</li> <li>Provide transparency throughout for the customer.</li><li>Include follow up after event for ratings and reviews to increase social media presence.</li></ul>'},
       {'name': 'Deliverables', 'type': 'text', 'description': '<p>New process developed, including Request Form added to website, automatic emails to customers, and BEO form developed</p><p>Stakeholder presentation of findings, recommendations, and new process</p>'},
@@ -123,9 +123,8 @@ const atlasGuild = {
       {'name': 'Next Steps and Reflections', 'type': 'text', 'description': 'After the summer ended, the founder abandoned Atlas Guild for another job. Next steps would have been creating an alpha phase program and conducting usability testing along the way.'},
   ],
 'design': [ // List of sections for Graphic Design
-      {'name': 'Context', 'type': 'text', 'description': 'design description. Rendezvous Cafe is a restaurant offering job training for people who are rebuilding their lives. The catering business allows the cafe to reian profitable but had a confusing and inefficient process for requests. Identify user and staff painpoints when processing their requests, simplify, and develop a solution.'},
-      {'name': 'Process', 'type': 'text', 'description': 'design description. nibus tellus, et effissim sit amet. Cras a posuere lectus. Nulla posuere consectetur sapien, et accumsan urna condimentum a. Morbi viverra mi lorem, id bibendum neque mattis mollis. Aenean sit amet consequat nibh. Integer turpis felis, euismod in nisi nec, imperdiet faucibus magna. Morbi quam eros, accumsan quis rhoncus eget, mattis vel metus. Duis eu sapien libero. Vestibulum imperdiet rhoncus augue, in ef'},
-      {'name': 'Summary', 'type': 'text', 'description': 'design description. finiissim sit amet. Cras a posuere lectus. Nulla posuere consectetur sapien, et accumsan urna condimentum a. Morbi viverra mi lorem, id bibendum neque mattis mollis. Aenean sit amet consequat nibh. Integer turpis felis, euismod in nisi nec, imperdiet faucibus magna. Morbi quam eros, accumsan quis rhoncus eget, mattis vel metus. Duis eu sapien libero. Vestibulum imperdiet rhoncus augue, in eff'}
+      {'name': 'Objective', 'type': 'text', 'description': '<p>In addition to conducting user research, I was responsible for creating brand materials, pitch decks, and presentations on my findings.</p>'},
+      {'name': '', 'type': 'text', 'description': '<img src="./atlasGuild/survey1.png"/><img src="./atlasGuild/survey2.png"/><img src="./atlasGuild/pitchDeck.png"/><img src="./atlasGuild/logo.jpg"/><img src="./atlasGuild/marketMap.png"/>'}
   ]
 }
 
@@ -150,6 +149,10 @@ const museumClasses = {
       {'name': 'Recommendations', 'type': 'text', 'description': '<ul><li>Classes will include digital fabrication skills but will focus on the process of making.</li><li>Offer same class multiple times during the day on weekends- maximizing availability for customers but reducing demand on Fab Lab Staff.</li><li>Caretakers stay during the duration of the class.</li><li>Classes should have built-in buffer time at start for any late groups; this should be an activity for the children.</li><li>Initial “circle time” instructions should be no longer than ten minutes to avoid children getting the wiggles. However, the instructions should cover the entirety of the activity, to help caretakers understand the technology, as well. </li></ul>'},
       {'name': 'Deliverables', 'type': 'text', 'description': '<ul><li>Pilot test class</li><li>Stakeholder presentations</li><li>Content recommendations and class creations</li></ul>'},
       {'name': 'Next Steps and Reflections', 'type': 'text', 'description': '<p>I would have loved to have been able to do a more robust dive into what our visitors wanted from the class experience. At the museum, my job was focused on bringing ideas into practice in the Fab Lab. As much as possible, I’d work to bring the wants and needs of our visitors into practice, but due to time and resource constraints, I’d only be able to talk quickly with caretakers who were already there with their children. From many, many of these quick discussions, I got a sense of what caretakers were looking for, but in the case of classes especially, I think we could have really benefited from longer, distraction-free, more in-depth interviews.</p>'},
+  ],
+  'design': [
+    {'name': 'Objective', 'type': 'text', 'description': 'After creating the framework and content for the new class sessions, I made the supporting visual materials. These materials are intended to:<ul> <li>help caregivers help their children through the design process</li><li>emphasize the design process underlying the digital fabrication tools</li><li>inspire and support children in their creative problem solving</li><ul>'},
+    {'name': '', 'type': 'text', 'description': '<img src="./lightboxClass/directionAll.png"/><img src="./lightboxClass/direction1.png"/><img src="./lightboxClass/direction2.png"/><img src="./lightboxClass/direction3.png"/><img src="./lightboxClass/testStation.png"/><img src="./lightboxClass/premadeSlides.png"/>'}
   ]
 }
 
@@ -193,28 +196,24 @@ const exampleDesignProject = {
 }
 
 const ladies = {
-  'title': 'Design Project',
-  'description': 'I do not know what to put here',
+  'title': 'Power Pos(t)ers',
+  'description': 'Exploration of power and feminism',
   'design': [ // List of sections for Graphic Design
-    {'name': 'Context', 'type': 'text', 'description': 'I should figure out something to write here.'},
+    {'name': 'Objective', 'type': 'text', 'description': 'I started making these as a reaction to cultural and political events regarding women. They are representations of my wrestling with and expressions of strength and feminism.'},
     {'name': '', 'type': 'text', 'description': '<img src="./ladies/flowerWoman.png"/><img src="./ladies/flowerWoman2.png"/><img src="./ladies/flowerWoman3.png"/><img src="./ladies/nastyWoman1.jpg"/><img src="./ladies/nastyWoman2.jpg"/><img src="./ladies/nastyWoman3.jpg"/><img src="./ladies/nastyWoman4.jpg"/><img src="./ladies/fightWoman.png"/>'}
   ]
 }
 
 const nature = {
-  'title': 'Design Project2',
-  'description': 'I do not know what to put here2MODIFICATION',
+  'title': 'Nature Posters',
+  'description': 'Simplifying nature in layers',
   'design': [ // List of sections for Graphic Design
-    {'name': 'Context', 'type': 'text', 'description': 'MODIFICATIONI should figure out here.'},
+    {'name': 'Context', 'type': 'text', 'description': 'For this poster series, I wanted to parse the colors of nature without texture. I aimed to appreciate the shape, depth, and gradients through layers of colors.'},
     {'name': '', 'type': 'text', 'description': '<img src="./nature/sunset.png"/><img src="./nature/beach2.png"/><img src="./nature/junglev3.png"/><img src="./nature/Bridge.png"/><img src="./nature/beachv2.png"/><img src="./nature/flower.png"/>'}
   ]
 }
 
-let projects = Array(3).fill(exampleBothProject).concat(Array(3).fill(exampleUXRProject)).concat(Array(3).fill(exampleDesignProject)).map(function(u, i) {
-  var item = JSON.parse(JSON.stringify(u)); // deep copy of object
-  item.title = u.title + " " + i // giving them a distinct title
-  return item;
-})
+let projects = []
 
 // fOR JEn: projects.push(variable_name)
 projects.push(jobtrain)

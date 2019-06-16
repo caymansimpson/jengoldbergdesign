@@ -118,6 +118,7 @@ how to add that in!
 .sectionDescription img {
 	position:relative;
 	width:100%;
+	margin-bottom: 50px;
 }
 
 .columnSectionTitle{ /* this the the type of methodology used and will go on top of the section description*/
@@ -128,7 +129,7 @@ how to add that in!
 
 .columnHolder { /* this will hold the goal/ findings vert headers and the methodology section description*/
 	width:90%;
-	height: 250px;
+	height: 400px;
 	padding-left: 10%;
 	position: relative;
 	display:block;
@@ -142,6 +143,12 @@ how to add that in!
 	position:relative;
 	display: block;
 	margin-right: 6%;
+}
+
+.columnText img{
+	position:relative;
+	width:180%;
+	right:80%;
 }
 
 .columnTitle{ /*this is the vertical headers in the methodology section. they'll only say goals and findings*/
