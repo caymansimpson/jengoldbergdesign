@@ -6,6 +6,22 @@ import './Projects.css';
 //import { render } from "react-dom";
 import { Link } from "react-router-dom"
 
+
+// npm install html-react-parser --save
+import parse from 'html-react-parser';
+
+// To dynamically render images: https://github.com/survivejs/webpack-book/issues/80
+var images = require.context('../images', true);
+var setHTML = function(html) {
+  return parse(html, {
+      replace: function(element) {
+        if (element.attribs && element.name === 'img') {
+          return <img src={images(`${element.attribs.src}`)}/>
+        }
+      }
+  });
+}
+
 // Passing down the changePage function so we can activate it when a click on a span happens
 class NavSelector extends React.Component {
   render() {
@@ -43,10 +59,10 @@ class ProjectHeader extends React.Component {
     return (
       <div className='projectHeader'>
         <div className='projectDescription'>
-          <p dangerouslySetInnerHTML={{ __html: this.props.project.description}}/>
+          <p>{setHTML(this.props.project.description)}</p>
         </div>
         <div className="projectTitle">
-          <p dangerouslySetInnerHTML={{ __html: this.props.project.title}}/>
+          <p>{setHTML(this.props.project.title)}</p>
         </div>
         {this.props.project.uxr !== undefined && this.props.project.design !== undefined && // only show this if we have multiple to choose from
           <div className={"projectSelectionHolder " + (this.props.clicked !== null? 'clicked': '')}> {/*temporary*/}
@@ -65,14 +81,17 @@ class ProjectHeader extends React.Component {
 
 class TextSection extends React.Component {
   render() {
+
+
     return (
       <div>
         <div className='sectionTitle'>
-          <h2 dangerouslySetInnerHTML={{ __html: this.props.project.name}}/>
+          <h2>{setHTML(this.props.project.name)}</h2>
         </div>
         <div className='sectionDescription'>
-          <p dangerouslySetInnerHTML={{ __html: this.props.project.description}}/>
+          <p>{setHTML(this.props.project.description)}</p>
         </div>
+        {/* <img src={a}/> */}
       </div>
     );
   }
@@ -83,15 +102,15 @@ class ColumnSection extends React.Component {
     return (
       <div>
         <div className='columnSectionTitle'>
-          <h2 dangerouslySetInnerHTML={{ __html: this.props.project.name}}/>
+          <h2>{setHTML(this.props.project.name)}</h2>
         </div>
         <div className='columnHolder'>
           {
             this.props.project.columns.map(function(u, i) {
               return (
                 <div>
-                  <div className='columnTitle' dangerouslySetInnerHTML={{ __html: u.name}}/>
-                  <div className='columnText' dangerouslySetInnerHTML={{ __html: u.description}}/>
+                  <div className='columnTitle'>{setHTML(u.name)}</div>
+                  <div className='columnText'>{setHTML(u.description)}</div>
                 </div>
               )
             })
@@ -107,7 +126,7 @@ class QuoteSection extends React.Component {
     return (
       <div>
         <div className='quoteSection'>
-          <h2 className='quoteText' dangerouslySetInnerHTML={{ __html: this.props.project.description}}/>
+          <h2 className='quoteText'>{setHTML(this.props.project.description)}</h2>
         </div>
       </div>
     );
@@ -136,15 +155,19 @@ class Projects extends React.Component {
     this.setState({'clicked': val})
   }
 
-  // Handles how to change the header height when a user scrolls TODO: get this to print
-  handleScroll(e) {
-    // Can
-    console.log(e)
-  }
-
-  // Scroll to top after component rendered
+  // add scroll event
   componentDidMount() {
     window.scrollTo(0, 0)
+    window.addEventListener('scroll', this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll(e) {
+    // TODO: implement this
+    //console.log(window.pageYOffset, 300 - window.pageYOffset)
   }
 
   render() {
@@ -154,7 +177,7 @@ class Projects extends React.Component {
         <ProjectHeader
           clicked={this.state.clicked} project={this.props.project} handleClick={this.handleClick}
         />
-        <div className='projectdescriptionholder' onClick={(e) => this.handleScroll(e)}>
+        <div className='projectdescriptionholder'>
           {this.state.clicked !== null && // only display something if something was clicked, and choose which to display
             (this.state.clicked === 'uxr'? this.props.project.uxr : this.props.project.design).map(function(u, i) {
               if(u.type === "text") return <TextSection project={u} key={i}/>

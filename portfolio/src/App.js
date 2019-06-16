@@ -37,7 +37,7 @@ class App extends Component {
       'selected': selection,
       'shift': shift
     }, function() {
-      console.log("In changePage; changed state to", this.state.selected, "and shifting", this.shift)
+      console.log("In changePage; changed state to", this.state.selected, "and shifting", this.state.shift)
     })
   }
 
