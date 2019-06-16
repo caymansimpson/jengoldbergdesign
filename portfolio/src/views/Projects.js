@@ -16,7 +16,7 @@ var setHTML = function(html) {
   return parse(html, {
       replace: function(element) {
         if (element.attribs && element.name === 'img') {
-          return <img src={images(`${element.attribs.src}`)}/>
+          return <img src={images(`${element.attribs.src}`)} alt=""/>
         }
       }
   });
@@ -59,18 +59,18 @@ class ProjectHeader extends React.Component {
     return (
       <div className='projectHeader'>
         <div className='projectDescription'>
-          <p>{setHTML(this.props.project.description)}</p>
+          {setHTML(this.props.project.description)}
         </div>
         <div className="projectTitle">
-          <p>{setHTML(this.props.project.title)}</p>
+          {setHTML(this.props.project.title)}
         </div>
         {this.props.project.uxr !== undefined && this.props.project.design !== undefined && // only show this if we have multiple to choose from
-          <div className={"projectSelectionHolder " + (this.props.clicked !== null? 'clicked': '')}> {/*temporary*/}
+          <div className={"projectSelectionHolder " + (this.props.clicked !== null? 'clicked': '')}>
               <div className={"projectSelections " + (this.props.clicked !== null? 'clicked': '')} val="uxr" onClick={(e) => this.props.handleClick(e, "uxr")}>
                 {this.props.project.uxr !== undefined && <div className="projectOption">User Research</div>}
               </div>
               <div className={"projectSelections " + (this.props.clicked !== null? 'clicked': '')} val="design" onClick={(e) => this.props.handleClick(e, "design")}>
-                {this.props.project.design !== undefined && <div className="projectOption">Design</div>}
+                {this.props.project.design !== undefined && <div className="projectOption">Graphic Design</div>}
               </div>
           </div>
         }
@@ -81,17 +81,14 @@ class ProjectHeader extends React.Component {
 
 class TextSection extends React.Component {
   render() {
-
-
     return (
       <div>
         <div className='sectionTitle'>
           <h2>{setHTML(this.props.project.name)}</h2>
         </div>
         <div className='sectionDescription'>
-          <p>{setHTML(this.props.project.description)}</p>
+          {setHTML(this.props.project.description)}
         </div>
-        {/* <img src={a}/> */}
       </div>
     );
   }
@@ -108,7 +105,7 @@ class ColumnSection extends React.Component {
           {
             this.props.project.columns.map(function(u, i) {
               return (
-                <div>
+                <div key={u.name}>
                   <div className='columnTitle'>{setHTML(u.name)}</div>
                   <div className='columnText'>{setHTML(u.description)}</div>
                 </div>
@@ -116,6 +113,11 @@ class ColumnSection extends React.Component {
             })
           }
         </div>
+        {this.props.project.postColumn !== undefined && // only show this if we have postColumn defined
+          <div className="postColumn">
+            {setHTML(this.props.project.postColumn)}
+          </div>
+        }
       </div>
     );
   }

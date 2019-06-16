@@ -9,9 +9,9 @@ import {BrowserRouter, Route} from 'react-router-dom';
 class App extends Component {
   constructor(props) {
     super(props)
-    this.state = {'selected': 'UXR', 'shift': ''};
+    this.state = {'selected': 'User Research', 'shift': ''};
     this.changePage = this.changePage.bind(this);
-    this.headerOrder = ["Graphic Design", "UXR", "Me"]; // This is default
+    this.headerOrder = ["Graphic Design", "User Research", "Me"]; // This is default
     this.shift = '';
   }
 
