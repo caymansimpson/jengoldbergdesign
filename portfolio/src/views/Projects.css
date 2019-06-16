@@ -139,6 +139,10 @@ how to add that in! */
 	margin-right: -55px;
 }
 
+ul.columnText{
+	margin-top: 0 !important;
+}
+
 .quoteText{ /*this is for pull quotes "Learning like that changed my life"*/
 	width: 70%;
 	padding: 5% 5%;
