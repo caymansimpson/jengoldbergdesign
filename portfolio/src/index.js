@@ -202,7 +202,7 @@ const ladies = {
 }
 
 const nature = {
-  'title': 'Design Project',
+  'title': 'Design Project2',
   'description': 'I do not know what to put here2MODIFICATION',
   'design': [ // List of sections for Graphic Design
     {'name': 'Context', 'type': 'text', 'description': 'MODIFICATIONI should figure out here.'},
