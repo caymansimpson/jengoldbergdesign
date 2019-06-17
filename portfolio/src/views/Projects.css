@@ -47,7 +47,7 @@ and includes when you click to choose what is shown*/
 }
 
 .projectSelectionHolder{
-	height: 55vh;
+	height: 60vh;
 	width: 100%;
 }
 /* this is the div that contains User Research and Branding- this will be the click to choose */
@@ -65,9 +65,10 @@ and includes when you click to choose what is shown*/
   content: "";
   background-color: #000;
   position: absolute;
-  width: 1px;
-  height: 100%;
-  left: 99.75%;
+  width: 15px;
+  height: 88%;
+  top: 6%;
+  left: 99%;
   display: block;
 }
 
@@ -213,4 +214,14 @@ ul.columnText{
 	float: right;
 	position: relative;
 	top: 90px;
+}
+
+
+#journeymaps {
+	position: relative;
+	width: 100%;
+}
+
+#journeymaps img {
+	width: 100%;
 }

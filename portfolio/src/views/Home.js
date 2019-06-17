@@ -52,14 +52,20 @@ class ProjectList extends React.Component {
 class MePage extends React.Component {
 
   render() {
-    return ( // we must return one parent div; you cant return two childs for some rando reason
-      <div className="mePage">
-          <h2>I love you!</h2>
-          <h3>Hows it hanging?</h3>
-          <p>left or right... heh</p>
-          <div className="extradiv">this is an extra div</div>
+    return (<div className="me"> 
+      <div className="sectionTitle">
+      <h2>ope i'm jen</h2>
       </div>
-    );
+      <div className="sectionDescription">
+          <p>I love learning about people to create brands, products, and experiences that help people live better. I love listening and learning from users, finding the order and stories in the noise, and solving big problems to do work that matters. You can find me:</p>
+          <ul>
+            <li>Asking “tell me more” in everyday conversations</li>
+            <li>Reading about statistics as part of our daily lives</li>
+            <li>Making, sketching, and creative problem solving</li>
+            <li>Running along the Embarcadero</li>
+          </ul>
+      </div>
+    </div>);
   }
 }
 

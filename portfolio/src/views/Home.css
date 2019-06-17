@@ -141,6 +141,11 @@ a {
   min-height: 1000px;
 }
 
+.me {
+  text-align:left;
+  margin-top: 45vh;
+}
+
 
 /* ============= ANIMATION SECTION ==========================
 Notes: need to change the transitionTime variable in Home.js (defined in ms)
