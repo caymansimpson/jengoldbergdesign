@@ -144,6 +144,7 @@ a {
 .me {
   text-align:left;
   margin-top: 45vh;
+  min-height: 700px;
 }
 
 
